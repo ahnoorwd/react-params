@@ -15,11 +15,13 @@ import Users from './compononents/user/Users.jsx';
 import UserDetails from './compononents/userdetails/UserDetails.jsx';
 import Posts from './compononents/postss/Posts.jsx';
 import Spost from './compononents/singlepost/Spost.jsx';
+import Error from './compononents/errorpage/Error.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home></Home>,
+    errorElement:<Error></Error>,
     children:[
       {
         path:'/about',
@@ -49,8 +51,7 @@ const router = createBrowserRouter([
 
       {
         path:'/user/:sUId',
-        loader:({params})=> fetch(`https://jsonplaceholder.typicode.com/posts/
-          ${params.sUId}`),
+        loader:({params})=> fetch(`https://jsonplaceholder.typicode.com/posts/${params.sUId}`),
         element:<Spost></Spost>
       }
     

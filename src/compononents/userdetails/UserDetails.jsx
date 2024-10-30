@@ -1,12 +1,20 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 const UserDetails = () => {
    const userr= useLoaderData();
-   const {name,id}=userr;
+   const navigate = useNavigate();
+   const {id,username}=userr;
+   console.log(userr);
+
+
+   const hanndleofgoback=()=>{
+    navigate(-1)
+   }
     return (
         <div>
-          <h3>There is  the info of user: {name}</h3>  
-          <h3>it&apos;s is user id number: {id}</h3>  
+          <h3>serial number of user: {id}</h3>  
+          <h4>Name of the user: {username}</h4>  
+           <button onClick={hanndleofgoback}>Go back</button>
         </div>
     );
 };
